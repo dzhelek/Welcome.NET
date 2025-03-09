@@ -12,6 +12,7 @@ namespace DataLayer.Database
     public class DatabaseContext : DbContext
     {
         public DbSet<DatabaseUser> Users { get; set; }
+        public DbSet<DatabaseLogger> Logs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,6 +25,7 @@ namespace DataLayer.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DatabaseUser>().Property(e => e.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<DatabaseLogger>().Property(e => e.Id).ValueGeneratedOnAdd();
 
             var user = new DatabaseUser()
             {

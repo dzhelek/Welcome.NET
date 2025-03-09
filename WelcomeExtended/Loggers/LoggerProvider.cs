@@ -11,7 +11,17 @@ namespace WelcomeExtended.Loggers
     {
         ILogger ILoggerProvider.CreateLogger(string categoryName)
         {
-            return new HashLogger(categoryName);
+            switch(categoryName)
+            {
+                case "HashLogger":
+                    return new HashLogger(categoryName);
+                case "FileLogger":
+                    return new FileLogger(categoryName);
+                case "DatabaseLogger":
+                    return new DatabaseLogger(categoryName);
+                default:
+                    return new HashLogger(categoryName);
+            }
         }
 
         void IDisposable.Dispose()

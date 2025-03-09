@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Welcome.Model;
 using WelcomeExtended.Data;
+using WelcomeExtended.Others;
 
 namespace WelcomeExtended.Helpers
 {
@@ -22,13 +23,17 @@ namespace WelcomeExtended.Helpers
             {
                 throw new ArgumentNullException("Name or password is null");
             }
+
+            var log = new ActionOnError(Delegates.LogFile);
             if (userData.ValidateUser(name, password))
             {
                 Console.WriteLine("User is valid");
+                log($"[{DateTime.Now}] LOGIN SUCCESS: {name}");
             }
             else
             {
                 Console.WriteLine("User is not valid");
+                log($"[{DateTime.Now}] LOGIN INVALID: {name}");
             }
         }
 
