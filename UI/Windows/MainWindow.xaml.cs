@@ -27,5 +27,11 @@ namespace UI
             var win = new LoggerWindow();
             win.Show();
         }
+
+        private void OpenAboutWindow_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new AboutWindow();
+            win.Show();
+        }
     }
 }

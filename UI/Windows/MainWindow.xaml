@@ -8,8 +8,16 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="List of all students" Height="450" Width="800">
-    <Grid>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="View Logs" Click="OpenNewWindow_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Click="OpenAboutWindow_Click"/>
+            </MenuItem>
+        </Menu>
         <local2:StudentsList x:Name="studentsList" Padding="2"/>
-        <Button Content="View Logs" HorizontalAlignment="Left" Margin="229,159,0,0" VerticalAlignment="Top" Click="OpenNewWindow_Click"/>
-    </Grid>
+    </DockPanel>
 </Window>
