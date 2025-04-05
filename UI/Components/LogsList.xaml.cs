@@ -36,9 +36,13 @@ namespace UI.Components
         private void MouseDoubleClickHandler(object sender, MouseEventArgs e)
         {
             var datagrid = (DataGrid) sender;
-            var items = (List<DatabaseLogger>) datagrid.DataContext;
+            //var items = (List<DatabaseLogger>) datagrid.DataContext;
+            var item = (DatabaseLogger)datagrid.SelectedItem;
+            if (item == null)
+                return;
 
-            MessageBox.Show($"{items[0].Message}");
+            MessageBox.Show($"{item.Message}");
+            
         }
     }
 }
